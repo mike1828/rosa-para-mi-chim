@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interacción con Rosa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #rosa {
+      width: 200px;
+      height: 200px;
+      background: url('https://example.com/rosa.png') no-repeat center center;
+      background-size: cover;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    #mensaje {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="rosa"></div>
+  <div id="mensaje"></div>
+
+  <script>
+    let rosa = document.getElementById('rosa');
+    let mensaje = document.getElementById('mensaje');
+
+    rosa.addEventListener('click', function() {
+      let respuesta = prompt("Dime, ¿sí o no?");
+      
+      if (respuesta.toLowerCase() === 'no') {
+        let opciones = ["como que no", "que te pasha", "oie"];
+        mensaje.textContent = opciones[Math.floor(Math.random() * opciones.length)];
+      } else if (respuesta.toLowerCase() === 'si') {
+        mensaje.textContent = "sabía que ibas a decir que sí, preciosota!";
+      } else {
+        mensaje.textContent = "Por favor responde con 'sí' o 'no'.";
+      }
+    });
+  </script>
+
+</body>
+</html>
